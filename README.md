@@ -1,5 +1,5 @@
 # unrandomize
-Overrides Math.random with a seedable pseudorandom number generator. The generator uses the [xorshift128+ algorithm][xorshift], which is the built-in algorithm for [`Math.random()`][Math-random] in common web browsers since around 2015-2016. 
+`unrandomize` overrides `Math.random` with a seedable pseudorandom number generator. The generator uses the [xorshift128+ algorithm][xorshift], which is the built-in algorithm for [`Math.random()`][Math-random] in common web browsers since around 2015-2016. 
 
 ### Why use this?
 Programs that use [`Math.random()`][Math-random] can produce results that are hard to recreate, because the internal state used to generate those numbers is not directly accessible. By overriding [`Math.random`][Math-random] with one that has the same initial state, and an assignable and retrievable state, it's easier to recreate results.
