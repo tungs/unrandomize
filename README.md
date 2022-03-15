@@ -90,9 +90,10 @@ Creates a random seed and then seeds the default generator with it. Using `new u
 **unrandomize.getState()**
   * returns &lt;[Array][]&lt;[number][]&gt;&gt; An array of four 32-bit unsigned integers that represent the 128-bit state of the default generator.
 
-unrandomize also provides methods for selecting which random generator that `Math.random()` uses:
+**unrandomize** also provides methods for selecting which random generator that `Math.random()` uses:
 
 **unrandomize.useBuiltInRandom** reverts `Math.random()` to use its built in function.
+
 **unrandomize.useSeedableRandom** overrides `Math.random()` to use the default number generator instance.
 
 
