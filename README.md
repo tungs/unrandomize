@@ -2,7 +2,7 @@
 `unrandomize` overrides `Math.random` with a seedable pseudorandom number generator. The generator uses the [xorshift128+ algorithm][xorshift], which is the built-in algorithm for [`Math.random()`][Math-random] in common web browsers since around 2015-2016. 
 
 ### Why use this?
-Programs that use [`Math.random()`][Math-random] can produce results that are hard to recreate, because the internal state used to generate those numbers is not directly accessible. By overriding [`Math.random`][Math-random] with one that has the same initial state, and an assignable and retrievable state, it's easier to recreate results.
+Programs that use [`Math.random()`][Math-random] can produce results that are hard to recreate, because the internal state used to generate those numbers is not directly accessible. By overriding [`Math.random`][Math-random] with a generator has an assignable and retrievable state, it's easier to recreate results. `unrandomize` uses the same initial state so until its state is seeded or set by the user, it produces the same series of numbers on every rerun.
 
 ## Installing
 ### In Browser
@@ -36,7 +36,7 @@ To set a state from an integer or string based seed, use [`unrandomize.setSeed(s
 
 ## API
 <a name="api-math-random" href="#api-math-random">#</a> **Math.random()**
-  * returns: &lt;[number][]&gt; a number between 0 and 1, based off of the selected number generator. By default uses the overridden seedable pseudorandom number generator. Can be changed by calling [`unrandomize.useBuiltInRandom()`](#api-use-built-in-random) or [`unrandomize.useSeedableRandom()`](#api-use-seedable-random).
+  * returns: &lt;[number][]&gt; a number between 0 and 1, based off of the selected number generator. By default, it uses the overridden seedable pseudorandom number generator. It can be changed by calling [`unrandomize.useBuiltInRandom()`](#api-use-built-in-random) or [`unrandomize.useSeedableRandom()`](#api-use-seedable-random).
 
 ### <a name="api-class-generator" href="#api-class-generator">#</a> class: unrandomize.Generator
 <a name="api-class-generator-constructor" href="#api-class-generator-constructor">#</a> constructor: [`new unrandomize.Generator(seed)`](#api-class-generator)
@@ -97,11 +97,11 @@ Creates a random seed and then seeds the default generator with it. Using [`new 
 
 _____
 
-**unrandomize** also provides methods for selecting which random generator that [`Math.random()`](#api-math-random) uses:
+**unrandomize** also provides methods for selecting which pseudorandom number generator that [`Math.random()`](#api-math-random) uses:
 
-<a name="api-use-built-in-random" href="#api-use-built-in-random">#</a> **unrandomize.useBuiltInRandom** reverts [`Math.random()`](#api-math-random) to use its built in function.
+<a name="api-use-built-in-random" href="#api-use-built-in-random">#</a> **unrandomize.useBuiltInRandom** reverts [`Math.random`](#api-math-random) to its built in function.
 
-<a name="api-use-seedable-random" href="#api-use-seedable-random">#</a> **unrandomize.useSeedableRandom** overrides [`Math.random()`](#api-math-random) to use the default number generator instance.
+<a name="api-use-seedable-random" href="#api-use-seedable-random">#</a> **unrandomize.useSeedableRandom** overrides [`Math.random`](#api-math-random) to the default number generator instance.
 
 
 [null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#null_type
