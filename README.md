@@ -36,10 +36,10 @@ To set a state from an integer or string based seed, use [`unrandomize.setSeed(s
 
 ## API
 <a name="api-math-random" href="#api-math-random">#</a> **Math.random()**
-  * returns: &lt;[number][]&gt; a number between 0 and 1, based off of the selected number generator. By default uses the overridden seedable pseudorandom number generator. Can be changed by calling `unrandomize.useBuiltInRandom()` or `unrandomize.useSeedableRandom()`.
+  * returns: &lt;[number][]&gt; a number between 0 and 1, based off of the selected number generator. By default uses the overridden seedable pseudorandom number generator. Can be changed by calling [`unrandomize.useBuiltInRandom()`](#api-use-built-in-random) or [`unrandomize.useSeedableRandom()`](#api-use-seedable-random).
 
 ### <a name="api-class-generator" href="#api-class-generator">#</a> class: unrandomize.Generator
-constructor: `new unrandomize.Generator(seed)`
+<a name="api-class-generator-constructor" href="#api-class-generator-constructor">#</a> constructor: [`new unrandomize.Generator(seed)`](#api-class-generator)
   * `seed` &lt;[number][] | [string][]&gt; a number or string that serves to seed the state of the generator. Currently only 32 bits of the number is used.
   * returns: &lt;[Generator](#api-class-generator)&gt; a pseudorandom number generator that has an independent state from other generators
 
@@ -53,7 +53,7 @@ constructor: `new unrandomize.Generator(seed)`
   * `upperLimit` &lt;[number][]&gt; an integer representing the upper limit of the random seed. Defaults to 1000000000.
   * returns &lt;[number][]&gt; The number used as the seed for the generator.
 
-Creates a random seed and then seeds the generator with it. Using `new unrandomize.Generator(seed)` or `anotherGenerator.setSeed(seed)` with the returned value should recreate the generator.
+Creates a random seed and then seeds the generator with it. Using [`new unrandomize.Generator(seed)`](#api-class-generator) or [`anotherGenerator.setSeed(seed)`](#api-generator-set-seed) with the returned value should recreate the generator.
 
 <a name="api-generator-get-seed" href="#api-generator-get-seed">#</a> **generator.getSeed()**
   * returns  &lt;[number][] | [string][] | [null][] &gt; The number or string used as the seed for the generator. If there was no value used to seed or if the state was directly set, returns `null`.
@@ -66,10 +66,10 @@ Creates a random seed and then seeds the generator with it. Using `new unrandomi
   
 _____
 
-**unrandomize** automatically creates an internally used instance of a generator and maps the instance's methods onto the library. The overridden Math.random() uses this instance of a generator. The exception is [`unrandomize.random`](#api-unrandomize-random) which may use the built-in `Math.random` if [`unrandomize.useBuiltInRandom()`](#api-use-built-in-random) is called. [`unrandomize.seedableRandom`](#api-unrandomize-seedable-random) always uses the created instance's number generator.
+**unrandomize** automatically creates an internally used instance of a generator and maps the instance's methods onto the library. The overridden Math.random() uses this instance of a generator. The exception is [`unrandomize.random`](#api-unrandomize-random) which may use the built-in [`Math.random`][Math-random] if [`unrandomize.useBuiltInRandom()`](#api-use-built-in-random) is called. [`unrandomize.seedableRandom`](#api-unrandomize-seedable-random) always uses the created instance's number generator.
 
 <a name="api-unrandomize-random" href="#api-unrandomize-random">#</a> **unrandomize.random()**
-  * returns: &lt;[number][]&gt; a number between 0 and 1, using the user selected number generator (through `unrandomize.useBuiltInRandom()` or `unrandomize.useSeedableRandom()`).
+  * returns: &lt;[number][]&gt; a number between 0 and 1, using the user selected number generator (through [`unrandomize.useBuiltInRandom()`](#api-use-built-in-random) or [`unrandomize.useSeedableRandom()`](#api-use-seedable-random)).
 
 <a name="api-unrandomize-built-in-random" href="#api-unrandomize-built-in-random">#</a> **unrandomize.builtInRandom()**
   * returns: &lt;[number][]&gt; a number between 0 and 1, using the built-in number generator.
@@ -84,7 +84,7 @@ _____
   * `upperLimit` &lt;[number][]&gt; an integer representing the upper limit of the random seed. Defaults to 1000000000.
   * returns &lt;[number][]&gt; The number used as the seed for the default generator.
 
-Creates a random seed and then seeds the default generator with it. Using `new unrandomize.Generator(seed)` or `anotherGenerator.setSeed(seed)` with the returned value should recreate the generator.
+Creates a random seed and then seeds the default generator with it. Using [`new unrandomize.Generator(seed)`](#api-class-generator) or [`anotherGenerator.setSeed(seed)`](#api-generator-set-seed) with the returned value should recreate the generator.
 
 <a name="api-unrandomize-get-seed" href="#api-unrandomize-get-seed">#</a> **unrandomize.getSeed()**
   * returns &lt;[number][] | [string][] | [null][] &gt; The number or string used as the seed for the default generator. If there was no value used to seed or if the state was directly set, returns `null`.
@@ -97,11 +97,11 @@ Creates a random seed and then seeds the default generator with it. Using `new u
 
 _____
 
-**unrandomize** also provides methods for selecting which random generator that `Math.random()` uses:
+**unrandomize** also provides methods for selecting which random generator that [`Math.random()`](#api-math-random) uses:
 
-<a name="api-use-built-in-random" href="#api-use-built-in-random">#</a> **unrandomize.useBuiltInRandom** reverts `Math.random()` to use its built in function.
+<a name="api-use-built-in-random" href="#api-use-built-in-random">#</a> **unrandomize.useBuiltInRandom** reverts [`Math.random()`](#api-math-random) to use its built in function.
 
-<a name="api-use-seedable-random" href="#api-use-seedable-random">#</a> **unrandomize.useSeedableRandom** overrides `Math.random()` to use the default number generator instance.
+<a name="api-use-seedable-random" href="#api-use-seedable-random">#</a> **unrandomize.useSeedableRandom** overrides [`Math.random()`](#api-math-random) to use the default number generator instance.
 
 
 [null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#null_type
