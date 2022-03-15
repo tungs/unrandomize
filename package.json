@@ -1,6 +1,6 @@
 {
   "name": "unrandomize",
-  "version": "0.0.1-prerelease",
+  "version": "0.0.1",
   "description": "Overrides Math.random",
   "repository": {
     "type": "git",
