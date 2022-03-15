@@ -26,7 +26,7 @@ export default [
         file: 'dist/unrandomize.min.js',
         name: 'unrandomize',
         plugins: [ terser({
-          format: { preamble: '// timeweb v' + info.version + ' ' + copyright }
+          format: { preamble: '// ' + info.name + ' v' + info.version + ' ' + copyright }
         }) ],
         format: 'umd'
       }

@@ -196,7 +196,7 @@
   var generator = Generator;
   useSeedableRandom();
 
-  var version = "0.0.1";
+  var version = "0.1.0-prerelease";
 
   exports.Generator = Generator;
   exports.builtInRandom = builtInRandom;
