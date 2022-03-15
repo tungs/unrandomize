@@ -1,7 +1,7 @@
 {
   "name": "unrandomize",
   "version": "0.0.1",
-  "description": "Overrides Math.random",
+  "description": "Override Math.random",
   "repository": {
     "type": "git",
     "url": "https://github.com/tungs/unrandomize.git"
