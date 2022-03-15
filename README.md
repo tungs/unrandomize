@@ -2,7 +2,7 @@
 Overrides Math.random with a seedable pseudorandom number generator. The generator uses the [xorshift128+ algorithm](https://en.wikipedia.org/wiki/xorshift), which is the built-in algorithm for `Math.random()` in common web browsers since around 2015-2016. 
 
 ### Why use this?
-Exact results from programs using `Math.random()` can be hard to recreate. By overriding `Math.random` with one that has an assignable and retrievable state, it's easier to recreate results.
+Programs that use `Math.random()` can produce results that are hard to recreate, because the internal state used to generate those numbers is not directly accessible. By overriding `Math.random` with one that has the same initial state, and an assignable and retrievable state, it's easier to recreate results.
 
 ## Installing
 ### In Browser
@@ -76,6 +76,10 @@ Creates a random seed and then seeds the default generator with it. Using `new u
 **unrandomize.getState()**
   * returns &lt;[Array][]&lt;[number][]&gt;&gt; An array of four 32-bit unsigned integers that represent the 128-bit state of the default generator.
 
+unrandomize also provides methods for selecting which random generator that `Math.random()` uses:
+
+**unrandomize.useBuiltInRandom** reverts `Math.random()` to use its built in function.
+**unrandomize.useSeedableRandom** overrides `Math.random()` to use the default number generator instance.
 
 
 [null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#null_type
